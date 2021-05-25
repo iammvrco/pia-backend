@@ -1,0 +1,764 @@
+{
+	"info": {
+		"_postman_id": "1d418981-cf9a-4ed0-87e0-0dda75b77807",
+		"name": "Request Collection",
+		"description": "A continuación, mostramos cuales son los llamadas http disponibles y sus parámetros.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login and generate Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:1323/login?UserName=&Password=",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "UserName",
+							"value": ""
+						},
+						{
+							"key": "Password",
+							"value": ""
+						}
+					]
+				},
+				"description": "Esta es una petición pública.\n\nEsta peticion POST login permite iniciar sesión con un usuario y contraseña existentes en la base de datos y generar un token para la autenticación bearer token.\n\nEste token se requiere para realizar las peticiones http a la base de datos que se mostrarán a continuación. Es necesario guardar este token y agregarlo en las peticiones en la parte de Autenticación de tipo Bearer token."
+			},
+			"response": []
+		},
+		{
+			"name": "Sign up (Create user)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:1323/signUp?UserName=&Password=",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"signUp"
+					],
+					"query": [
+						{
+							"key": "UserName",
+							"value": ""
+						},
+						{
+							"key": "Password",
+							"value": ""
+						}
+					]
+				},
+				"description": "Esta petición es pública.\n\nEsta petición POST signUp permite crear un nuevo usuario en la base de datos, por lo que el usuario que sea creado ya estará registrado y podrá generar un token para realizar peticiones a la base de datos."
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Personal Information",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1323/jwt/personalInfo",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"jwt",
+						"personalInfo"
+					]
+				},
+				"description": "Esta petición requiere Bearer Token. (Iniciar sesión, generar token y utilizarlo en las peticiones).\n\nEsta petición GET personalInfo permite consultar todos los registros de la entidad PersonalInfo de la base de datos.\n\nEl bearer token generado debe ser colocado en Authorization Bearer Token en la petición."
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new Personal Information",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:1323/jwt/personalInfo?CURP=&RFC=&NSS=&Names=&LastNames=&BirthDate=",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"jwt",
+						"personalInfo"
+					],
+					"query": [
+						{
+							"key": "CURP",
+							"value": ""
+						},
+						{
+							"key": "RFC",
+							"value": ""
+						},
+						{
+							"key": "NSS",
+							"value": ""
+						},
+						{
+							"key": "Names",
+							"value": ""
+						},
+						{
+							"key": "LastNames",
+							"value": ""
+						},
+						{
+							"key": "BirthDate",
+							"value": ""
+						}
+					]
+				},
+				"description": "Esta petición requiere Bearer Token. (Iniciar sesión, generar token y utilizarlo en las peticiones).\n\nEsta petición POST personalInfo permite crear un registro en la entidad PersonalInfo en la base de datos.\n\nEl bearer token generado debe ser colocado en Authorization Bearer Token en la petición."
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Personal Information",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:1323/jwt/personalInfo?CURP=&RFC=&NSS=&Names=&LastNames=&BirthDate=",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"jwt",
+						"personalInfo"
+					],
+					"query": [
+						{
+							"key": "CURP",
+							"value": ""
+						},
+						{
+							"key": "RFC",
+							"value": ""
+						},
+						{
+							"key": "NSS",
+							"value": ""
+						},
+						{
+							"key": "Names",
+							"value": ""
+						},
+						{
+							"key": "LastNames",
+							"value": ""
+						},
+						{
+							"key": "BirthDate",
+							"value": ""
+						}
+					]
+				},
+				"description": "Esta petición requiere Bearer Token. (Iniciar sesión, generar token y utilizarlo en las peticiones).\n\nEsta petición PUT personalInfo permite modificar un registro en la entidad PersonalInfo en la base de datos. \n\nLos parámetros requeridos son los datos que serán modificados y los datos que no serán modificados.\n\nEl bearer token generado debe ser colocado en Authorization Bearer Token en la petición."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Personal Information",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:1323/jwt/personalInfo?CURP=",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"jwt",
+						"personalInfo"
+					],
+					"query": [
+						{
+							"key": "CURP",
+							"value": ""
+						}
+					]
+				},
+				"description": "Esta petición requiere Bearer Token. (Iniciar sesión, generar token y utilizarlo en las peticiones).\n\nEsta petición DELETE personalInfo permite eliminar un registro en la entidad PersonalInfo en la base de datos.\n\nEl bearer token generado debe ser colocado en Authorization Bearer Token en la petición."
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Addresses",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1323/jwt/addresses",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"jwt",
+						"addresses"
+					]
+				},
+				"description": "Esta petición requiere Bearer Token. (Iniciar sesión, generar token y utilizarlo en las peticiones).\n\nEsta petición GET addresses permite consultar todos los registros de la entidad Addresses de la base de datos.\n\nEl bearer token generado debe ser colocado en Authorization Bearer Token en la petición."
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new Address",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:1323/jwt/addresses?Name=&Street=&Number=&Neighborhood=&ZipCode=&City=&State=&Country=&CURP=",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"jwt",
+						"addresses"
+					],
+					"query": [
+						{
+							"key": "Name",
+							"value": ""
+						},
+						{
+							"key": "Street",
+							"value": ""
+						},
+						{
+							"key": "Number",
+							"value": ""
+						},
+						{
+							"key": "Neighborhood",
+							"value": ""
+						},
+						{
+							"key": "ZipCode",
+							"value": ""
+						},
+						{
+							"key": "City",
+							"value": ""
+						},
+						{
+							"key": "State",
+							"value": ""
+						},
+						{
+							"key": "Country",
+							"value": ""
+						},
+						{
+							"key": "CURP",
+							"value": ""
+						}
+					]
+				},
+				"description": "Esta petición requiere Bearer Token. (Iniciar sesión, generar token y utilizarlo en las peticiones).\n\nEsta petición POST addresses permite crear un registro en la entidad Addresses en la base de datos.\n\nEl bearer token generado debe ser colocado en Authorization Bearer Token en la petición."
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Address",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:1323/jwt/addresses?ID=&Name=&Street=&Number=&Neighborhood=&ZipCode=&City=&State=&Country=&CURP=",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"jwt",
+						"addresses"
+					],
+					"query": [
+						{
+							"key": "ID",
+							"value": ""
+						},
+						{
+							"key": "Name",
+							"value": ""
+						},
+						{
+							"key": "Street",
+							"value": ""
+						},
+						{
+							"key": "Number",
+							"value": ""
+						},
+						{
+							"key": "Neighborhood",
+							"value": ""
+						},
+						{
+							"key": "ZipCode",
+							"value": ""
+						},
+						{
+							"key": "City",
+							"value": ""
+						},
+						{
+							"key": "State",
+							"value": ""
+						},
+						{
+							"key": "Country",
+							"value": ""
+						},
+						{
+							"key": "CURP",
+							"value": ""
+						}
+					]
+				},
+				"description": "Esta petición requiere Bearer Token. (Iniciar sesión, generar token y utilizarlo en las peticiones).\n\nEsta petición PUT addresses permite modificar un registro en la entidad Addresses en la base de datos.\n\nLos parámetros requeridos son los datos que serán modificados y los datos que no serán modificados.\n\nEl bearer token generado debe ser colocado en Authorization Bearer Token en la petición."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Address",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:1323/jwt/addresses?ID=",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"jwt",
+						"addresses"
+					],
+					"query": [
+						{
+							"key": "ID",
+							"value": ""
+						}
+					]
+				},
+				"description": "Esta petición requiere Bearer Token. (Iniciar sesión, generar token y utilizarlo en las peticiones).\n\nEsta petición DELETE addresses permite eliminar un registro en la entidad Addresses en la base de datos.\n\nEl bearer token generado debe ser colocado en Authorization Bearer Token en la petición."
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Emails",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1323/jwt/emails",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"jwt",
+						"emails"
+					]
+				},
+				"description": "Esta petición requiere Bearer Token. (Iniciar sesión, generar token y utilizarlo en las peticiones).\n\nEsta petición GET emails permite consultar todos los registros de la entidad Emails de la base de datos.\n\nEl bearer token generado debe ser colocado en Authorization Bearer Token en la petición."
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new Email",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:1323/jwt/emails?Email=&CURP=",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"jwt",
+						"emails"
+					],
+					"query": [
+						{
+							"key": "Email",
+							"value": ""
+						},
+						{
+							"key": "CURP",
+							"value": ""
+						}
+					]
+				},
+				"description": "Esta petición requiere Bearer Token. (Iniciar sesión, generar token y utilizarlo en las peticiones).\n\nEsta petición POST emails permite crear un registro en la entidad Emails en la base de datos.\n\nEl bearer token generado debe ser colocado en Authorization Bearer Token en la petición."
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Email",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:1323/jwt/emails?Email=&NewEmail=&CURP=",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"jwt",
+						"emails"
+					],
+					"query": [
+						{
+							"key": "Email",
+							"value": ""
+						},
+						{
+							"key": "NewEmail",
+							"value": ""
+						},
+						{
+							"key": "CURP",
+							"value": ""
+						}
+					]
+				},
+				"description": "Esta petición requiere Bearer Token. (Iniciar sesión, generar token y utilizarlo en las peticiones).\n\nEsta petición PUT emails permite modificar un registro en la entidad Emails en la base de datos.\n\nLos parámetros requeridos son los datos que serán modificados y los datos que no serán modificados.\n\nEl bearer token generado debe ser colocado en Authorization Bearer Token en la petición."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Email",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:1323/jwt/emails?Email=",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"jwt",
+						"emails"
+					],
+					"query": [
+						{
+							"key": "Email",
+							"value": ""
+						}
+					]
+				},
+				"description": "Esta petición requiere Bearer Token. (Iniciar sesión, generar token y utilizarlo en las peticiones).\n\nEsta petición DELETE emails permite eliminar un registro en la entidad Emails en la base de datos.\n\nEl bearer token generado debe ser colocado en Authorization Bearer Token en la petición."
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Phones",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1323/jwt/phones",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"jwt",
+						"phones"
+					]
+				},
+				"description": "Esta petición requiere Bearer Token. (Iniciar sesión, generar token y utilizarlo en las peticiones).\n\nEsta petición GET phones permite consultar todos los registros de la entidad Phones de la base de datos.\n\nEl bearer token generado debe ser colocado en Authorization Bearer Token en la petición."
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new Phone",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:1323/jwt/phones?PhoneNumber=&Place=&CURP=",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"jwt",
+						"phones"
+					],
+					"query": [
+						{
+							"key": "PhoneNumber",
+							"value": ""
+						},
+						{
+							"key": "Place",
+							"value": ""
+						},
+						{
+							"key": "CURP",
+							"value": ""
+						}
+					]
+				},
+				"description": "Esta petición requiere Bearer Token. (Iniciar sesión, generar token y utilizarlo en las peticiones).\n\nEsta petición POST phones permite crear un registro en la entidad Phones en la base de datos.\n\nEl bearer token generado debe ser colocado en Authorization Bearer Token en la petición."
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Phone",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:1323/jwt/phones?PhoneNumber=&NewPhone=&NewPlace=&CURP=",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"jwt",
+						"phones"
+					],
+					"query": [
+						{
+							"key": "PhoneNumber",
+							"value": ""
+						},
+						{
+							"key": "NewPhone",
+							"value": ""
+						},
+						{
+							"key": "NewPlace",
+							"value": ""
+						},
+						{
+							"key": "CURP",
+							"value": ""
+						}
+					]
+				},
+				"description": "Esta petición requiere Bearer Token. (Iniciar sesión, generar token y utilizarlo en las peticiones).\n\nEsta petición PUT phones permite modificar un registro en la entidad Phones en la base de datos.\n\nLos parámetros requeridos son los datos que serán modificados y los datos que no serán modificados.\n\nEl bearer token generado debe ser colocado en Authorization Bearer Token en la petición."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Phone",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:1323/jwt/phones?PhoneNumber=&CURP=",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"jwt",
+						"phones"
+					],
+					"query": [
+						{
+							"key": "PhoneNumber",
+							"value": ""
+						},
+						{
+							"key": "CURP",
+							"value": ""
+						}
+					]
+				},
+				"description": "Esta petición requiere Bearer Token. (Iniciar sesión, generar token y utilizarlo en las peticiones).\n\nEsta petición DELETE phones permite eliminar un registro en la entidad Phones en la base de datos.\n\nEl bearer token generado debe ser colocado en Authorization Bearer Token en la petición."
+			},
+			"response": []
+		}
+	]
+}
