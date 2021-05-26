@@ -1,4 +1,14 @@
-**API Rest en Golang.**
+### API Rest en Golang.
+
+**Developers:**
+
+**Judith Alejandra Candelaria Sánchez 1723541**
+
+**Gretel Gabrielle González Rodríguez 1805315**
+
+**Marco Antonio Vázquez Rivera 1678576**
+
+### ___________________________________________________________________________________________________
 
 Para hace un uso correcto de esta API hay que cumplir con los siguientes requerimientos:
 
