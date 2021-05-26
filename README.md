@@ -515,7 +515,3 @@ o	PhoneNumber: Número de teléfono a eliminar.
 
 o	CURP: CURP de la persona a quien pertenece el número.
  
-
-
- 
-
